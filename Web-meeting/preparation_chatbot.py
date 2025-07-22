@@ -91,27 +91,19 @@ with tab3:
         audio_frame_callback=AudioRecoginizer.audio_frame_callback_func, 
         media_stream_constraints={"video": False, "audio": True},
     )
-    # webrtc_ctx = webrtc_streamer(key="example",
-    #                 mode=WebRtcMode.RECVONLY,
-    #                 audio_frame_callback=AudioRecoginizer.audio_frame_callback_func, 
-    #                 media_stream_constraints={"video":False, "audio":True},
-    #                 async_processing=True,
-    #                 )
     result_placeholder = st.empty()
-
-
-    
-    if  webrtc_ctx.state.playing:
-        if not st.session_state.recognizer_thread_running: 
-            st.session_state.recognizer_thread_running = True
-            # # threading.Threadのtargetにはrを渡す必要がない
-            threading.Thread(target=AudioRecoginizer.recoginizer_thread, daemon=True).start()
-            # audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=1)
-        result_placeholder.info("マイクがオンです。発言を認識中")
-    else:
-        if st.session_state.recognizer_thread_running:
-            st.session_state.recognizer_thread_running = False
-        result_placeholder.write("マイクが音声を認識していません")
+   
+    # if  webrtc_ctx.state.playing:
+    #     if not st.session_state.recognizer_thread_running: 
+    #         st.session_state.recognizer_thread_running = True
+    #         # # threading.Threadのtargetにはrを渡す必要がない
+    #         threading.Thread(target=AudioRecoginizer.recoginizer_thread, daemon=True).start()
+    #         # audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=1)
+    #     result_placeholder.info("マイクがオンです。発言を認識中")
+    # else:
+    #     if st.session_state.recognizer_thread_running:
+    #         st.session_state.recognizer_thread_running = False
+    #     result_placeholder.write("マイクが音声を認識していません")
     
     st.subheader("最近の発言履歴")
     # 発言履歴をリアルタイムで表示
