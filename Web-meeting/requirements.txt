@@ -1,0 +1,9 @@
+streamlit
+transformers
+torch
+scikit-learn
+numpy
+unidic-lite
+accelerate
+streamlit-webrtc 
+av
