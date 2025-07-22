@@ -5,7 +5,7 @@ import time
 import speech_recognition as sr
 import threading 
 import av
-import pydub
+# import pydub
 import numpy as np
 import openai
 
